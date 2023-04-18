@@ -3,8 +3,8 @@ project:
   output-dir: "."
   
 website:
-  title: "DANL 310"
-  page-footer: "Copyright 2023, Byeong-Hak Choe" 
+  title: "DANL 399"
+  page-footer: "Copyright 2023, Jason Rappazzo" 
   reader-mode: false
   navbar:
     pinned: true

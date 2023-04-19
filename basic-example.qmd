@@ -315,8 +315,9 @@ plot(lasso_model)
 
 ## Linear Regression Results
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE}
+library(stargazer)
 
-summary(lin_reg)
+stargazer(lin_reg, type = "html", title="Regression Results", ci=TRUE, ci.level=0.90, single.row=TRUE)
 
 library(coefplot)
 library(broom)

@@ -11,7 +11,7 @@ website:
     left:
       - text: project
         href: basic-example.qmd
-      - text: lectures
+      - text: Another Tab
         menu:
           - text: DANL310 midterm
             href: DANL310_midterm-spring-2023-a.qmd

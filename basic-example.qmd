@@ -309,16 +309,46 @@ plot(lasso_model)
 
 ```
 
+## Random Forest
+```{r}
+library(randomForest)
+
+# Train the model
+accident_forest <- randomForest(label ~ ., data = accident_prepared, ntree = 10, mtry = 5)
+
+# Make predictions on the test set
+pred <- predict(accident_forest, newdata = accident_prepared_test)
+
+# Generate confusion matrix
+confusion_matrix <- table(pred, label_test)
+
+# Calculate MSE
+mse <- mean((label_test - pred)^2)
+
+# Print confusion matrix and MSE
+print(confusion_matrix)
+print(paste("Mean Squared Error:", mse))
+
+```
 
 
 # Results
 
+## Mean Squared Error of all Models
+
+
 ## Linear Regression Results
-```{r, collapse=TRUE, warning=FALSE, message=FALSE}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,echo=FALSE}
 library(stargazer)
 
-stargazer(lin_reg, type = "text", title="Regression Results", ci=TRUE, ci.level=0.90, single.row=TRUE,dep.var.caption = "Severity of Car Accident")
+stargazer(lin_reg, type = "text", title = "Linear Regression Results", 
+          ci = TRUE, ci.level = 0.90, single.row = TRUE,
+          dep.var.caption = "Severity of Car Accident",
+          omit.stat = "all")
+          
+```
 
+```{r, collapse=TRUE, warning=FALSE, message=FALSE}
 library(coefplot)
 library(broom)
 
@@ -410,6 +440,16 @@ plot_cat5
 
 
 ```
+
+## Decision Tree Results
+```{r, collapse=TRUE, warning=FALSE, message=FALSE}
+varImpPlot(accident_forest, main = "Variable Importance Plot")
+```
+
+
+
+
+
 
 # Discussion
 

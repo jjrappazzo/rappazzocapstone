@@ -54,21 +54,24 @@ library(tidyverse)
 # I am using a 10% sample of the original data set with 2.8 million observations
 path <- "C:/Users/jjrap/OneDrive/Desktop/sample_accidents.csv"
 accident_raw <- read_csv(path)
-# accident_raw <- read_csv('C:/Users/jjrap/OneDrive/Desktop/SUNY Geneseo/Spring 2023/Data Analytics Capstone/sample_accidents.csv')
+
 
 accident_raw <- accident_raw %>% 
   na.omit()
 ```
 
 ```{r, echo=FALSE,collapse=TRUE, warning=FALSE, message=FALSE}
-rmarkdown::paged_table(accident_raw %>% head(20))
+rmarkdown::paged_table(accident_raw)
 ```
 
 
-## Preparing Data For Machine Learning
+# Preparing Data For Machine Learning
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE}
 accident_12var <- accident_raw %>% 
-  select(Severity,State, `Temperature(F)`, `Humidity(%)`, `Visibility(mi)`, `Wind_Speed(mph)`, Weather_Condition, `Precipitation(in)`, Crossing, Junction, Traffic_Signal, Sunrise_Sunset)
+  select(Severity,State, `Temperature(F)`, `Humidity(%)`,
+         `Visibility(mi)`, `Wind_Speed(mph)`, Weather_Condition,
+         `Precipitation(in)`, Crossing, Junction, Traffic_Signal,
+         Sunrise_Sunset)
 
 colnames(accident_12var) <- gsub("\\)|\\%|\\(", ".", colnames(accident_12var))
 ```
@@ -191,6 +194,9 @@ accident_prepared_test <- accident_prepared_test %>%
 
 accident_prepared_test <- select(accident_prepared_test, -c("id", "join_key", "join_key.1"))
 
+```
+
+```{r, include = FALSE, warning=FALSE, echo=FALSE}
 accident_prepared_test$Weather_Condition_Blowing.Dust...Windy <- 0
 accident_prepared_test$Weather_Condition_Clear <- 0
 accident_prepared_test$Weather_Condition_Blowing.Snow...Windy <- 0
@@ -208,19 +214,12 @@ accident_prepared_test$Weather_Condition_Thunder.and.Hail <- 0
 accident_prepared_test$Weather_Condition_Widespread.Dust <- 0
 accident_prepared_test$Weather_Condition_Widespread.Dust...Windy <- 0
 accident_prepared_test$Weather_Condition_Light.Snow.Shower <- 0
-accident_prepared_test$Weather_Condition_Widespread.Dust...Windy <- 0
-accident_prepared_test$Weather_Condition_Widespread.Dust...Windy <- 0
-accident_prepared_test$Weather_Condition_Widespread.Dust...Windy <- 0
-accident_prepared_test$Weather_Condition_Widespread.Dust...Windy <- 0
-
-
 ```
 
 
 
 
-
-# Models (Make linear, ridge, lasso, random forest using every variable before using the 11 variables for everything) -Both?
+# Models 
 
 ## Linear Regression
 
@@ -313,8 +312,11 @@ plot(lasso_model)
 
 
 # Results
+
+## Linear Regression Results
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE}
-#Linear Regression Results
+
+summary(lin_reg)
 
 library(coefplot)
 library(broom)
@@ -355,7 +357,7 @@ plot_cat1 <- ggplot(cat_coef_df1, aes(x = estimate, y = reorder(term, estimate))
   geom_point(size = 2) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high)) +
   labs(x = "Coefficient Estimate", y = "Variable") +
-  ggtitle("Linear Regression Results for State Variables (Part 1)") +
+  ggtitle("Linear Regression Results for Categorical Variables") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept = 0, linetype = "dashed", color = "red")
@@ -366,7 +368,7 @@ plot_cat2 <- ggplot(cat_coef_df2, aes(x = estimate, y = reorder(term, estimate))
   geom_point(size = 2) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high)) +
   labs(x = "Coefficient Estimate", y = "Variable") +
-  ggtitle("Linear Regression Results for State Variables (Part 2)") +
+  ggtitle("Linear Regression Results for Categorical Variables") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept = 0, linetype = "dashed", color = "red")
@@ -387,7 +389,7 @@ plot_cat4 <- ggplot(cat_coef_df4, aes(x = estimate, y = reorder(term, estimate))
   geom_point(size = 2) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high)) +
   labs(x = "Coefficient Estimate", y = "Variable") +
-  ggtitle("Linear Regression Results for Categorical Variables (Part 2)") +
+  ggtitle("Linear Regression Results for Categorical Variables") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept = 0, linetype = "dashed", color = "red")
@@ -398,7 +400,7 @@ plot_cat5 <- ggplot(cat_coef_df5, aes(x = estimate, y = reorder(term, estimate))
   geom_point(size = 2) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high)) +
   labs(x = "Coefficient Estimate", y = "Variable") +
-  ggtitle("Linear Regression Results for Categorical Variables (Part 3)") +
+  ggtitle("Linear Regression Results for Categorical Variables") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept = 0, linetype = "dashed", color = "red")

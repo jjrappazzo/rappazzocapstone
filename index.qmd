@@ -1,21 +1,21 @@
 ---
-title: "Your Name" 
+title: "Jason Rappazzo" 
 about:
   template: solana
   image: img/logo.png
   links:
     - text: GitHub
       icon: github
-      href: https://github.com/YOUR_GITHUB
+      href: https://github.com/jjrappazzo
     - text: LinkedIn
       icon: linkedin
-      href: https://www.linkedin.com/in/YOUR_LINKEDIN/
+      href: https://www.linkedin.com/in/jason_rappazzo/
     - text: Twitter
       icon: twitter
-      href: https://twitter.com/YOUR_SOCIAL_MEDIA
+      href: https://twitter.com/jason_rappazzo
     - text: Email
       icon: envelope
-      href: mailto:YOUR_EMAIL@geneseo.edu
+      href: mailto:jjrappazzo@gmail.com
     - text: Résumé
       icon: file-pd
       href: https://YOUR_GITHUB.github.io/YOUR_RESUME.pdf
@@ -32,5 +32,5 @@ I enjoy ...
 ## Education
 
 **State University of New York at Geneseo**, 2023<br>
-- B.A./B.S. in YOUR MAJOR<br>
-- YOUR MINOR
+- B.A.in Economics<br>
+- Minor in Data Analytics

@@ -325,8 +325,7 @@ confusion_matrix <- table(pred, label_test)
 # Calculate MSE
 mse <- mean((label_test - pred)^2)
 
-# Print confusion matrix and MSE
-print(confusion_matrix)
+
 print(paste("Mean Squared Error:", mse))
 
 ```
@@ -442,7 +441,7 @@ plot_cat5
 ```
 
 ## Decision Tree Results
-```{r, collapse=TRUE, warning=FALSE, message=FALSE}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
 varImpPlot(accident_forest, main = "Variable Importance Plot")
 ```
 

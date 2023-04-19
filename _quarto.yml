@@ -9,7 +9,7 @@ website:
   navbar:
     pinned: true
     left:
-      - text: project
+      - text: Car Accident Project
         href: basic-example.qmd
       - text: Another Tab
         menu:

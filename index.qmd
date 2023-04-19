@@ -9,7 +9,7 @@ about:
       href: https://github.com/jjrappazzo
     - text: LinkedIn
       icon: linkedin
-      href: https://www.linkedin.com/in/jason_rappazzo/
+      href: https://www.linkedin.com/in/jasonrappazzo/
     - text: Twitter
       icon: twitter
       href: https://twitter.com/jason_rappazzo

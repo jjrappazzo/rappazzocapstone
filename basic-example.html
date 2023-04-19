@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Awesome Me">
+<meta name="author" content="Jason Rappazzo">
 <meta name="dcterms.date" content="2023-04-19">
 
-<title>DANL 399 - Habbit</title>
+<title>DANL 399 - United States Car Accident Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,6 +96,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -148,21 +151,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarterly-results" id="toc-quarterly-results" class="nav-link active" data-scroll-target="#quarterly-results"><span class="header-section-number">0.1</span> Quarterly Results</a>
+  <li><a href="#indroduction" id="toc-indroduction" class="nav-link active" data-scroll-target="#indroduction"><span class="header-section-number">1</span> Indroduction</a>
   <ul class="collapse">
-  <li><a href="#by-product" id="toc-by-product" class="nav-link" data-scroll-target="#by-product"><span class="header-section-number">0.1.1</span> By Product</a></li>
-  <li><a href="#by-region" id="toc-by-region" class="nav-link" data-scroll-target="#by-region"><span class="header-section-number">0.1.2</span> By Region</a></li>
+  <li><a href="#motivation-for-the-project---james" id="toc-motivation-for-the-project---james" class="nav-link" data-scroll-target="#motivation-for-the-project---james"><span class="header-section-number">1.1</span> Motivation for the Project - James</a></li>
+  <li><a href="#research-questions--james" id="toc-research-questions--james" class="nav-link" data-scroll-target="#research-questions--james"><span class="header-section-number">1.2</span> Research Questions -James</a></li>
+  <li><a href="#overview-of-modeling-techniques---me" id="toc-overview-of-modeling-techniques---me" class="nav-link" data-scroll-target="#overview-of-modeling-techniques---me"><span class="header-section-number">1.3</span> Overview of Modeling Techniques - Me</a></li>
   </ul></li>
-  <li><a href="#example-title" id="toc-example-title" class="nav-link" data-scroll-target="#example-title">Example Title</a>
+  <li><a href="#raw-data" id="toc-raw-data" class="nav-link" data-scroll-target="#raw-data"><span class="header-section-number">2</span> Raw Data</a>
   <ul class="collapse">
-  <li><a href="#section-x" id="toc-section-x" class="nav-link" data-scroll-target="#section-x"><span class="header-section-number">0.2</span> Section X</a></li>
+  <li><a href="#preparing-data-for-machine-learning" id="toc-preparing-data-for-machine-learning" class="nav-link" data-scroll-target="#preparing-data-for-machine-learning"><span class="header-section-number">2.1</span> Preparing Data For Machine Learning</a></li>
   </ul></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="header-section-number">1</span> Section 1</a>
+  <li><a href="#models-make-linear-ridge-lasso-random-forest-using-every-variable-before-using-the-11-variables-for-everything--both" id="toc-models-make-linear-ridge-lasso-random-forest-using-every-variable-before-using-the-11-variables-for-everything--both" class="nav-link" data-scroll-target="#models-make-linear-ridge-lasso-random-forest-using-every-variable-before-using-the-11-variables-for-everything--both"><span class="header-section-number">3</span> Models (Make linear, ridge, lasso, random forest using every variable before using the 11 variables for everything) -Both?</a>
   <ul class="collapse">
-  <li><a href="#section-1.1" id="toc-section-1.1" class="nav-link" data-scroll-target="#section-1.1"><span class="header-section-number">1.1</span> Section 1.1</a></li>
-  <li><a href="#section-1.2" id="toc-section-1.2" class="nav-link" data-scroll-target="#section-1.2"><span class="header-section-number">1.2</span> Section 1.2</a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression"><span class="header-section-number">3.1</span> Linear Regression</a></li>
+  <li><a href="#ridge-regression" id="toc-ridge-regression" class="nav-link" data-scroll-target="#ridge-regression"><span class="header-section-number">3.2</span> Ridge Regression</a></li>
+  <li><a href="#lasso-regression" id="toc-lasso-regression" class="nav-link" data-scroll-target="#lasso-regression"><span class="header-section-number">3.3</span> Lasso Regression</a></li>
   </ul></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="header-section-number">2</span> Section 2</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4</span> Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">5</span> Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
   </ul>
 </nav>
 </nav>
@@ -175,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Habbit</h1>
+<h1 class="title">United States Car Accident Project</h1>
 </div>
 
 
@@ -185,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Awesome Me </p>
+             <p>Jason Rappazzo </p>
           </div>
   </div>
     
@@ -202,55 +209,400 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="quarterly-results" class="level2 tabset tabset-pills" data-number="0.1">
-<h2 class="tabset tabset-pills anchored" data-number="0.1" data-anchor-id="quarterly-results"><span class="header-section-number">0.1</span> Quarterly Results</h2>
-<section id="by-product" class="level3" data-number="0.1.1">
-<h3 data-number="0.1.1" class="anchored" data-anchor-id="by-product"><span class="header-section-number">0.1.1</span> By Product</h3>
-<p>(tab content) 1</p>
+<section id="indroduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Indroduction</h1>
+<section id="motivation-for-the-project---james" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="motivation-for-the-project---james"><span class="header-section-number">1.1</span> Motivation for the Project - James</h2>
 </section>
-<section id="by-region" class="level3" data-number="0.1.2">
-<h3 data-number="0.1.2" class="anchored" data-anchor-id="by-region"><span class="header-section-number">0.1.2</span> By Region</h3>
-<p>(tab content) 2</p>
+<section id="research-questions--james" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="research-questions--james"><span class="header-section-number">1.2</span> Research Questions -James</h2>
+</section>
+<section id="overview-of-modeling-techniques---me" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="overview-of-modeling-techniques---me"><span class="header-section-number">1.3</span> Overview of Modeling Techniques - Me</h2>
+<p><u> Binary Response Model </u></p>
+<p><u> Linear Regression </u></p>
+<p><u> Lasso Regression </u></p>
+<p><u> Ridge Regression </u></p>
+<p><u> Ordinal Logit Regression </u></p>
+<p><u> Decision Tree </u></p>
+<p><u> Random Forest </u></p>
+<p><u> Artificial Neural Network </u></p>
+</section>
+</section>
+<section id="raw-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Raw Data</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="basic-example_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["...1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["ID"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Severity"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Start_Time"],"name":[4],"type":["dttm"],"align":["right"]},{"label":["End_Time"],"name":[5],"type":["dttm"],"align":["right"]},{"label":["Start_Lat"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Start_Lng"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["End_Lat"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["End_Lng"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Distance(mi)"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Description"],"name":[11],"type":["chr"],"align":["left"]},{"label":["Number"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["Street"],"name":[13],"type":["chr"],"align":["left"]},{"label":["Side"],"name":[14],"type":["chr"],"align":["left"]},{"label":["City"],"name":[15],"type":["chr"],"align":["left"]},{"label":["County"],"name":[16],"type":["chr"],"align":["left"]},{"label":["State"],"name":[17],"type":["chr"],"align":["left"]},{"label":["Zipcode"],"name":[18],"type":["chr"],"align":["left"]},{"label":["Country"],"name":[19],"type":["chr"],"align":["left"]},{"label":["Timezone"],"name":[20],"type":["chr"],"align":["left"]},{"label":["Airport_Code"],"name":[21],"type":["chr"],"align":["left"]},{"label":["Weather_Timestamp"],"name":[22],"type":["dttm"],"align":["right"]},{"label":["Temperature(F)"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["Wind_Chill(F)"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Humidity(%)"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["Pressure(in)"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Visibility(mi)"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Wind_Direction"],"name":[28],"type":["chr"],"align":["left"]},{"label":["Wind_Speed(mph)"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["Precipitation(in)"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["Weather_Condition"],"name":[31],"type":["chr"],"align":["left"]},{"label":["Amenity"],"name":[32],"type":["lgl"],"align":["right"]},{"label":["Bump"],"name":[33],"type":["lgl"],"align":["right"]},{"label":["Crossing"],"name":[34],"type":["lgl"],"align":["right"]},{"label":["Give_Way"],"name":[35],"type":["lgl"],"align":["right"]},{"label":["Junction"],"name":[36],"type":["lgl"],"align":["right"]},{"label":["No_Exit"],"name":[37],"type":["lgl"],"align":["right"]},{"label":["Railway"],"name":[38],"type":["lgl"],"align":["right"]},{"label":["Roundabout"],"name":[39],"type":["lgl"],"align":["right"]},{"label":["Station"],"name":[40],"type":["lgl"],"align":["right"]},{"label":["Stop"],"name":[41],"type":["lgl"],"align":["right"]},{"label":["Traffic_Calming"],"name":[42],"type":["lgl"],"align":["right"]},{"label":["Traffic_Signal"],"name":[43],"type":["lgl"],"align":["right"]},{"label":["Turning_Loop"],"name":[44],"type":["lgl"],"align":["right"]},{"label":["Sunrise_Sunset"],"name":[45],"type":["chr"],"align":["left"]},{"label":["Civil_Twilight"],"name":[46],"type":["chr"],"align":["left"]},{"label":["Nautical_Twilight"],"name":[47],"type":["chr"],"align":["left"]},{"label":["Astronomical_Twilight"],"name":[48],"type":["chr"],"align":["left"]}],"data":[{"1":"5","2":"A-2365183","3":"2","4":"2019-12-24 13:48:00","5":"2019-12-24 15:40:24","6":"38.96853","7":"-123.02645","8":"38.96853","9":"-123.02645","10":"0.000","11":"At Ridge Rd - Accident.","12":"6141","13":"Highway 175","14":"R","15":"Hopland","16":"Mendocino","17":"CA","18":"95449-9678","19":"US","20":"US/Pacific","21":"KUKI","22":"2019-12-24 13:56:00","23":"47","24":"47","25":"63","26":"29.22","27":"10","28":"CALM","29":"0","30":"0","31":"Cloudy","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"6","2":"A-2779851","3":"2","4":"2019-04-18 16:12:10","5":"2019-04-18 16:41:04","6":"26.08656","7":"-80.20765","8":"26.08570","9":"-80.20644","10":"0.096","11":"Ramp to I-595 Eastbound and SR-84 Eastbound - Accident.","12":"2798","13":"Burris Rd","14":"R","15":"Fort Lauderdale","16":"Broward","17":"FL","18":"33314","19":"US","20":"US/Eastern","21":"KFLL","22":"2019-04-18 15:53:00","23":"85","24":"85","25":"63","26":"29.95","27":"10","28":"ESE","29":"16","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"10","2":"A-479354","3":"2","4":"2021-10-07 17:01:42","5":"2021-10-07 19:04:11","6":"28.34150","7":"-81.39395","8":"28.34044","9":"-81.39083","10":"0.204","11":"Slow traffic on County Hwy-527 from S Orange Ave / Mary Louis Ln to Michigan Ave due to accident.","12":"3103","13":"Old Dixie Hwy","14":"R","15":"Kissimmee","16":"Osceola","17":"FL","18":"34744","19":"US","20":"US/Eastern","21":"KISM","22":"2021-10-07 16:56:00","23":"88","24":"88","25":"65","26":"29.94","27":"10","28":"ESE","29":"18","30":"0","31":"Mostly Cloudy","32":"FALSE","33":"FALSE","34":"TRUE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"11","2":"A-1881712","3":"2","4":"2020-11-26 05:58:00","5":"2020-11-26 08:18:05","6":"34.14080","7":"-117.38607","8":"34.13989","9":"-117.38607","10":"0.063","11":"Incident on IDYLLWILD CT near MESA ST Drive with caution.","12":"6201","13":"Idyllwild Ct","14":"L","15":"Rialto","16":"San Bernardino","17":"CA","18":"92377-4560","19":"US","20":"US/Pacific","21":"KSBD","22":"2020-11-26 05:40:00","23":"44","24":"44","25":"72","26":"28.78","27":"10","28":"CALM","29":"0","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Night","46":"Night","47":"Day","48":"Day"},{"1":"15","2":"A-620141","3":"2","4":"2021-06-24 17:28:00","5":"2021-06-24 20:56:05","6":"41.97198","7":"-77.23488","8":"41.97168","9":"-77.22784","10":"0.362","11":"Incident on PA-49 NB near BOTTOM HILL RD Expect long delays.","12":"1805","13":"Bottom Hill Rd","14":"L","15":"Lawrenceville","16":"Tioga","17":"PA","18":"16929-8508","19":"US","20":"US/Eastern","21":"KELM","22":"2021-06-24 17:53:00","23":"78","24":"78","25":"35","26":"29.19","27":"10","28":"SSW","29":"12","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"16","2":"A-1872415","3":"2","4":"2020-10-22 13:00:30","5":"2020-10-23 01:14:24","6":"28.08560","7":"-82.50488","8":"28.08458","9":"-82.50449","10":"0.074","11":"Queuing traffic on FL-597 from Carrollwood Springs Blvd to Madaca Ln due to accident.","12":"14900","13":"N Dale Mabry Hwy","14":"R","15":"Tampa","16":"Hillsborough","17":"FL","18":"33618-1814","19":"US","20":"US/Eastern","21":"KTPA","22":"2020-10-22 12:53:00","23":"87","24":"87","25":"49","26":"29.98","27":"10","28":"E","29":"10","30":"0","31":"Mostly Cloudy","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"17","2":"A-461378","3":"2","4":"2021-06-30 17:09:00","5":"2021-06-30 17:30:10","6":"29.65969","7":"-82.42776","8":"29.65964","9":"-82.42257","10":"0.312","11":"Stationary traffic on FL-26 from NW 91st St (FL-26) to NW 75th St/Tower Rd (FL-26) due to accident.","12":"799","13":"NW 80th Blvd","14":"R","15":"Gainesville","16":"Alachua","17":"FL","18":"32607-1599","19":"US","20":"US/Eastern","21":"KGNV","22":"2021-06-30 16:53:00","23":"78","24":"78","25":"90","26":"29.95","27":"10","28":"CALM","29":"0","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"TRUE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"18","2":"A-611656","3":"2","4":"2021-12-21 17:49:00","5":"2021-12-21 18:10:30","6":"29.73272","7":"-95.45656","8":"29.73203","9":"-95.46071","10":"0.253","11":"Slow traffic from Weslayan St (Richmond Ave) to I-610/West Loop (Richmond Ave) due to accident.","12":"4734","13":"Richmond Ave","14":"L","15":"Houston","16":"Harris","17":"TX","18":"77027-6604","19":"US","20":"US/Central","21":"KMCJ","22":"2021-12-21 17:53:00","23":"59","24":"59","25":"44","26":"29.99","27":"10","28":"S","29":"5","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Night","46":"Day","47":"Day","48":"Day"},{"1":"19","2":"A-402535","3":"2","4":"2021-07-07 22:20:00","5":"2021-07-08 01:22:41","6":"34.02021","7":"-117.91225","8":"34.01882","9":"-117.91099","10":"0.120","11":"Accident from N Backton Ave to Hemphill St.","12":"298","13":"N Shipman Ave","14":"R","15":"La Puente","16":"Los Angeles","17":"CA","18":"91744-5336","19":"US","20":"US/Pacific","21":"KEMT","22":"2021-07-07 21:53:00","23":"68","24":"68","25":"78","26":"29.72","27":"10","28":"S","29":"5","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Night","46":"Night","47":"Night","48":"Night"},{"1":"23","2":"A-2012771","3":"2","4":"2020-11-06 02:20:23","5":"2020-11-06 04:17:23","6":"45.26490","7":"-108.91180","8":"45.26628","9":"-108.91295","10":"0.110","11":"Incident on US-310 near RIDGEWAY RD Drive with caution.","12":"2390","13":"US Highway 310","14":"R","15":"Bridger","16":"Carbon","17":"MT","18":"59014-9586","19":"US","20":"US/Mountain","21":"KBIL","22":"2020-11-06 01:53:00","23":"59","24":"59","25":"27","26":"26.11","27":"10","28":"WSW","29":"15","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Night","46":"Night","47":"Night","48":"Night"},{"1":"25","2":"A-502006","3":"2","4":"2021-10-29 17:08:09","5":"2021-10-29 18:45:13","6":"35.18978","7":"-80.92231","8":"35.18962","9":"-80.92158","10":"0.042","11":"Incident on YORKMONT RD near W TYVOLA RD Expect delays.","12":"2547","13":"Yorkmont Rd","14":"R","15":"Charlotte","16":"Mecklenburg","17":"NC","18":"28217","19":"US","20":"US/Eastern","21":"KCLT","22":"2021-10-29 16:52:00","23":"56","24":"56","25":"80","26":"28.74","27":"9","28":"SSW","29":"17","30":"0","31":"Light Rain","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"27","2":"A-2285593","3":"2","4":"2020-03-01 17:49:00","5":"2020-03-01 19:41:29","6":"37.68358","7":"-120.33105","8":"37.68358","9":"-120.33105","10":"0.000","11":"At Bonds Flat Rd - Accident.","12":"14301","13":"Las Palmas Way","14":"L","15":"La Grange","16":"Tuolumne","17":"CA","18":"95329-9300","19":"US","20":"US/Pacific","21":"KMER","22":"2020-03-01 18:45:00","23":"46","24":"46","25":"81","26":"29.71","27":"10","28":"CALM","29":"0","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"28","2":"A-1613769","3":"2","4":"2021-01-31 00:54:00","5":"2021-01-31 03:49:54","6":"30.58385","7":"-87.11168","8":"30.58594","9":"-87.11160","10":"0.144","11":"Incident on BELL LN near CECIL RDE Expect delays.","12":"4049","13":"Bell Ln","14":"L","15":"Milton","16":"Santa Rosa","17":"FL","18":"32571-2755","19":"US","20":"US/Central","21":"KNDZ","22":"2021-01-31 00:24:00","23":"64","24":"64","25":"90","26":"29.79","27":"7","28":"S","29":"9","30":"0","31":"Light Rain","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Night","46":"Night","47":"Night","48":"Night"},{"1":"29","2":"A-1394281","3":"2","4":"2021-06-05 22:11:50","5":"2021-06-06 03:00:32","6":"35.26732","7":"-80.74615","8":"35.26848","9":"-80.74457","10":"0.119","11":"Incident on OLD CONCORD RD near BRANCH HILL CIR Expect delays.","12":"7104","13":"Old Concord Rd","14":"R","15":"Charlotte","16":"Mecklenburg","17":"NC","18":"28213-6451","19":"US","20":"US/Eastern","21":"KJQF","22":"2021-06-05 21:53:00","23":"79","24":"79","25":"69","26":"29.37","27":"10","28":"S","29":"8","30":"0","31":"Cloudy","32":"FALSE","33":"FALSE","34":"TRUE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Night","46":"Night","47":"Night","48":"Day"},{"1":"31","2":"A-2301570","3":"2","4":"2020-01-15 12:31:56","5":"2020-01-15 16:31:56","6":"42.07908","7":"-121.84561","8":"42.07203","9":"-121.84849","10":"0.509","11":"At California/Oregon State Line - Accident.","12":"15032","13":"Highway 97 S","14":"L","15":"Klamath Falls","16":"Klamath","17":"OR","18":"97603-9500","19":"US","20":"US/Pacific","21":"KLMT","22":"2020-01-15 12:53:00","23":"33","24":"20","25":"70","26":"25.63","27":"10","28":"S","29":"25","30":"0","31":"Cloudy / Windy","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"33","2":"A-1462484","3":"2","4":"2021-12-11 16:22:21","5":"2021-12-11 17:45:17","6":"33.58577","7":"-79.01198","8":"33.58598","9":"-79.01225","10":"0.021","11":"Incident on ATLANTIC AVE near US-17 Drive with caution.","12":"798","13":"Atlantic Ave","14":"R","15":"Murrells Inlet","16":"Horry","17":"SC","18":"29576-8104","19":"US","20":"US/Eastern","21":"KMYR","22":"2021-12-11 15:56:00","23":"68","24":"68","25":"81","26":"29.94","27":"10","28":"S","29":"13","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"37","2":"A-2325345","3":"2","4":"2020-02-03 13:22:00","5":"2020-02-03 14:15:40","6":"44.95295","7":"-93.18248","8":"44.95295","9":"-93.18248","10":"0.000","11":"At Cretin Ave/Vandalia St/Exit 237 - Accident.","12":"401","13":"Prior Ave N","14":"L","15":"Saint Paul","16":"Ramsey","17":"MN","18":"55104","19":"US","20":"US/Central","21":"KSTP","22":"2020-02-03 12:53:00","23":"32","24":"23","25":"50","26":"29.16","27":"10","28":"N","29":"12","30":"0","31":"Cloudy","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"43","2":"A-938741","3":"2","4":"2021-08-08 12:55:00","5":"2021-08-08 14:10:36","6":"28.15089","7":"-82.49229","8":"28.15184","9":"-82.49125","10":"0.091","11":"Incident on DALE MABRY HWY near SUNLAKE BLVD Expect delays.","12":"18911","13":"N Dale Mabry Hwy","14":"L","15":"Lutz","16":"Hillsborough","17":"FL","18":"33548-4981","19":"US","20":"US/Eastern","21":"KVDF","22":"2021-08-08 12:55:00","23":"91","24":"91","25":"63","26":"30.09","27":"10","28":"CALM","29":"0","30":"0","31":"Partly Cloudy","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"FALSE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"},{"1":"44","2":"A-2357690","3":"4","4":"2020-01-02 18:39:35","5":"2020-01-02 19:09:00","6":"39.06735","7":"-74.83165","8":"39.06852","9":"-74.83103","10":"0.087","11":"Closed at 3rd Ave - Road closed due to accident.","12":"997","13":"S Route 9","14":"L","15":"Cape May Court House","16":"Cape May","17":"NJ","18":"08210-2301","19":"US","20":"US/Eastern","21":"KWWD","22":"2020-01-02 18:56:00","23":"49","24":"45","25":"69","26":"29.91","27":"10","28":"S","29":"10","30":"0","31":"Fair","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"TRUE","44":"FALSE","45":"Night","46":"Night","47":"Night","48":"Night"},{"1":"46","2":"A-1673442","3":"2","4":"2021-01-22 14:52:00","5":"2021-01-22 16:52:57","6":"33.60865","7":"-117.10940","8":"33.60921","9":"-117.10892","10":"0.048","11":"Incident on CA-79 near SKYVIEW RD Expect delays.","12":"34700","13":"Winchester Rd","14":"R","15":"Winchester","16":"Riverside","17":"CA","18":"92596","19":"US","20":"US/Pacific","21":"KF70","22":"2021-01-22 14:55:00","23":"57","24":"57","25":"67","26":"28.49","27":"10","28":"SSW","29":"13","30":"0","31":"Mostly Cloudy","32":"FALSE","33":"FALSE","34":"FALSE","35":"FALSE","36":"FALSE","37":"FALSE","38":"FALSE","39":"FALSE","40":"FALSE","41":"FALSE","42":"FALSE","43":"TRUE","44":"FALSE","45":"Day","46":"Day","47":"Day","48":"Day"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
-</section>
-</section>
-<section id="example-title" class="level1 unnumbered">
-<h1 class="unnumbered">Example Title</h1>
-<p>Here is some example title.</p>
-<section id="section-x" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="section-x"><span class="header-section-number">0.2</span> Section X</h2>
-<p>This is my introduction.</p>
+</div>
+<section id="preparing-data-for-machine-learning" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="preparing-data-for-machine-learning"><span class="header-section-number">2.1</span> Preparing Data For Machine Learning</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>accident_12var <span class="ot">&lt;-</span> accident_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Severity,State, <span class="st">`</span><span class="at">Temperature(F)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Humidity(%)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Visibility(mi)</span><span class="st">`</span>, <span class="st">`</span><span class="at">Wind_Speed(mph)</span><span class="st">`</span>, Weather_Condition, <span class="st">`</span><span class="at">Precipitation(in)</span><span class="st">`</span>, Crossing, Junction, Traffic_Signal, Sunrise_Sunset)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(accident_12var) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">)|</span><span class="sc">\\</span><span class="st">%|</span><span class="sc">\\</span><span class="st">("</span>, <span class="st">"."</span>, <span class="fu">colnames</span>(accident_12var))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(recipes)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>train_indices <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(accident_12var<span class="sc">$</span>Severity, <span class="at">p =</span> <span class="fl">0.8</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>train_set <span class="ot">&lt;-</span> accident_12var[train_indices, ]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">&lt;-</span> accident_12var[<span class="sc">-</span>train_indices, ]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># TRAIN SET</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a copy of the train set</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>copied_traindata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(train_set)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add an id column to copied_traindata</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>copied_traindata <span class="ot">&lt;-</span> copied_traindata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>())</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate Label from Feature</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>accident <span class="ot">&lt;-</span> <span class="fu">select</span>(copied_traindata, <span class="sc">-</span>Severity) <span class="co"># drop Severity column</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>label <span class="ot">&lt;-</span> copied_traindata<span class="sc">$</span>Severity <span class="co"># select Severity column</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate Numerical from Categorical</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>accident_num <span class="ot">&lt;-</span> accident <span class="sc">%&gt;%</span> </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, Temperature.F., Humidity..., Visibility.mi., Wind_Speed.mph., Precipitation.in.)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>accident_cat <span class="ot">&lt;-</span> accident <span class="sc">%&gt;%</span> </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, State, Weather_Condition, Crossing, Junction, Traffic_Signal, Sunrise_Sunset)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Define numeric and categorical attributes</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>num_attribs <span class="ot">&lt;-</span> <span class="fu">names</span>(accident_num)[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>cat_attribs <span class="ot">&lt;-</span> <span class="fu">names</span>(accident_cat)[<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>]</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Define preprocessing pipelines</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>num_pipeline <span class="ot">&lt;-</span> <span class="fu">recipe</span>(<span class="sc">~</span>., <span class="at">data =</span> accident_num) <span class="sc">%&gt;%</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_impute_median</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">has_role</span>(<span class="st">"id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_center</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">has_role</span>(<span class="st">"id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_scale</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">has_role</span>(<span class="st">"id"</span>))</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>cat_pipeline <span class="ot">&lt;-</span> <span class="fu">recipe</span>(<span class="sc">~</span>., <span class="at">data =</span> accident_cat) <span class="sc">%&gt;%</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>())</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the preprocessed numerical and categorical features into a single dataset</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>accident <span class="ot">&lt;-</span> accident <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Index =</span> id) </span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(num_pipeline <span class="sc">%&gt;%</span> <span class="fu">prep</span>() <span class="sc">%&gt;%</span> <span class="fu">bake</span>(<span class="at">new_data =</span> <span class="cn">NULL</span>), <span class="at">join_key =</span> <span class="st">"Index"</span>)</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(cat_pipeline <span class="sc">%&gt;%</span> <span class="fu">prep</span>() <span class="sc">%&gt;%</span> <span class="fu">bake</span>(<span class="at">new_data =</span> <span class="cn">NULL</span>), <span class="at">join_key =</span> <span class="st">"Index"</span>)</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>accident_prepared <span class="ot">&lt;-</span> accident <span class="sc">%&gt;%</span> </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">one_of</span>(<span class="fu">c</span>(cat_attribs, num_attribs)))</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>accident_prepared <span class="ot">&lt;-</span> <span class="fu">cbind</span>(accident_prepared, df1,df2)</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>accident_prepared <span class="ot">&lt;-</span> accident_prepared <span class="sc">%&gt;%</span> </span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>accident_prepared <span class="ot">&lt;-</span> <span class="fu">select</span>(accident_prepared, <span class="sc">-</span><span class="fu">c</span>(<span class="st">"Index"</span>, <span class="st">"id"</span>, <span class="st">"join_key"</span>, <span class="st">"id.1"</span>, <span class="st">"join_key.1"</span>))</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST SET</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a copy of the test set</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>copied_testdata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(test_set)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Add an id column to copied_testdata</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>copied_testdata <span class="ot">&lt;-</span> copied_testdata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>())</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate Label from Feature</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>accident_test <span class="ot">&lt;-</span> <span class="fu">select</span>(copied_testdata, <span class="sc">-</span>Severity) <span class="co"># drop Severity column</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>label_test <span class="ot">&lt;-</span> copied_testdata<span class="sc">$</span>Severity <span class="co"># select Severity column</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate Numerical from Categorical</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>accident_num_test <span class="ot">&lt;-</span> copied_testdata <span class="sc">%&gt;%</span> </span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Temperature.F., Humidity..., Visibility.mi., Wind_Speed.mph., Precipitation.in.)</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>accident_cat_test <span class="ot">&lt;-</span> copied_testdata <span class="sc">%&gt;%</span> </span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(State, Weather_Condition, Crossing, Junction, Traffic_Signal, Sunrise_Sunset)</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Define numeric and categorical attributes</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>num_attribs <span class="ot">&lt;-</span> <span class="fu">names</span>(accident_num_test)[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>cat_attribs <span class="ot">&lt;-</span> <span class="fu">names</span>(accident_cat_test)[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Define preprocessing pipelines</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>num_pipeline <span class="ot">&lt;-</span> <span class="fu">recipe</span>(<span class="sc">~</span>., <span class="at">data =</span> accident_num_test) <span class="sc">%&gt;%</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_impute_median</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">has_role</span>(<span class="st">"id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_center</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">has_role</span>(<span class="st">"id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_scale</span>(<span class="fu">all_numeric</span>(), <span class="sc">-</span><span class="fu">has_role</span>(<span class="st">"id"</span>))</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>cat_pipeline <span class="ot">&lt;-</span> <span class="fu">recipe</span>(<span class="sc">~</span>., <span class="at">data =</span> accident_cat_test) <span class="sc">%&gt;%</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal</span>())</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the preprocessed numerical and categorical features into a single dataset</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>copied_testdata <span class="ot">&lt;-</span> copied_testdata <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">Index =</span> id) </span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(num_pipeline <span class="sc">%&gt;%</span> <span class="fu">prep</span>() <span class="sc">%&gt;%</span> <span class="fu">bake</span>(<span class="at">new_data =</span> <span class="cn">NULL</span>), <span class="at">join_key =</span> <span class="st">"Index"</span>)</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(cat_pipeline <span class="sc">%&gt;%</span> <span class="fu">prep</span>() <span class="sc">%&gt;%</span> <span class="fu">bake</span>(<span class="at">new_data =</span> <span class="cn">NULL</span>), <span class="at">join_key =</span> <span class="st">"Index"</span>)</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>accident_prepared_test <span class="ot">&lt;-</span> accident_test <span class="sc">%&gt;%</span> </span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">one_of</span>(<span class="fu">c</span>(cat_attribs, num_attribs)))</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>accident_prepared_test <span class="ot">&lt;-</span> <span class="fu">cbind</span>(accident_prepared_test, df1,df2)</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>accident_prepared_test <span class="ot">&lt;-</span> accident_prepared_test <span class="sc">%&gt;%</span> </span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>accident_prepared_test <span class="ot">&lt;-</span> <span class="fu">select</span>(accident_prepared_test, <span class="sc">-</span><span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"join_key"</span>, <span class="st">"join_key.1"</span>))</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Blowing.Dust...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Clear <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Blowing.Snow...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Freezing.Drizzle <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Heavy.Drizzle <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Heavy.Sleet <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Heavy.Snow...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Light.Freezing.Rain...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Light.Ice.Pellets <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Light.Thunderstorms.and.Rain <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Sleet <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Thunder...Wintry.Mix <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Smoke...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Thunder.and.Hail <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Widespread.Dust <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Widespread.Dust...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Light.Snow.Shower <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Widespread.Dust...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Widespread.Dust...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Widespread.Dust...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>accident_prepared_test<span class="sc">$</span>Weather_Condition_Widespread.Dust...Windy <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="models-make-linear-ridge-lasso-random-forest-using-every-variable-before-using-the-11-variables-for-everything--both" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Models (Make linear, ridge, lasso, random forest using every variable before using the 11 variables for everything) -Both?</h1>
+<section id="linear-regression" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="linear-regression"><span class="header-section-number">3.1</span> Linear Regression</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the linear regression model</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>lin_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(label <span class="sc">~</span> ., <span class="at">data =</span> accident_prepared)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the model to predict the response variable using the test data</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lin_reg, <span class="at">newdata =</span> accident_prepared_test)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the residuals</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>residuals <span class="ot">&lt;-</span> y_pred <span class="sc">-</span> label_test</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the squared errors</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>squared_errors <span class="ot">&lt;-</span> residuals<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean squared error</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>(squared_errors)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the MSE</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"MSE:"</span>, mse)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="do">## MSE: 0.1324914</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ridge-regression" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="ridge-regression"><span class="header-section-number">3.2</span> Ridge Regression</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ridge regression</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate the predictor variables from the response variable</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> label</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">select</span>(accident_prepared, <span class="sc">-</span>label))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the lambda sequence for ridge regression</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>lambda_seq <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">seq</span>(<span class="dv">10</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="at">length =</span> <span class="dv">100</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform cross-validated ridge regression</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>ridge_fit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(X, y, <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">lambda =</span> lambda_seq)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the cross-validation results</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ridge_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ridge_coef <span class="ot">&lt;-</span> <span class="fu">coef</span>(ridge_fit)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ridge_fit, <span class="at">newx =</span> X)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((y <span class="sc">-</span> y_pred)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the MSE</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"MSE:"</span>, mse)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## MSE: 0.1341102</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lasso-regression" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="lasso-regression"><span class="header-section-number">3.3</span> Lasso Regression</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> ., <span class="at">data =</span> accident_prepared) </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> label</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a Lasso regression with cross-validation</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>lasso_model <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y, <span class="at">alpha =</span> <span class="dv">1</span>) </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>extra_columns <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">colnames</span>(accident_prepared_test), <span class="fu">colnames</span>(accident_prepared))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>accident_prepared_test <span class="ot">&lt;-</span> accident_prepared_test <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">select</span>(<span class="sc">-</span><span class="fu">one_of</span>(extra_columns))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict the response variable using the test data</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>x_test <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> ., <span class="at">data =</span> accident_prepared_test) </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lasso_model, <span class="at">newx =</span> x_test)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the MSE</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((y_pred <span class="sc">-</span> label_test)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the MSE</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"MSE:"</span>, mse)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="do">## MSE: 0.134835</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lasso_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 </section>
-<section id="section-1" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Section 1</h1>
-<p>Wake up</p>
-<section id="section-1.1" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="section-1.1"><span class="header-section-number">1.1</span> Section 1.1</h2>
-<p>Drink water</p>
+<section id="results" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Results</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Linear Regression Results</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(coefplot)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract coefficients and standard errors</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>coef_df <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lin_reg, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter out intercept</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>coef_df <span class="ot">&lt;-</span> coef_df[<span class="sc">-</span><span class="dv">1</span>,]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>num_coef_df <span class="ot">&lt;-</span> coef_df[coef_df<span class="sc">$</span>term <span class="sc">%in%</span> num_attribs,]</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>cat_coef_df <span class="ot">&lt;-</span> coef_df[<span class="fu">grep</span>(<span class="st">".*</span><span class="sc">\\</span><span class="st">_.*"</span>, coef_df<span class="sc">$</span>term), ]</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plots</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plot_num <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(num_coef_df, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> <span class="fu">reorder</span>(term, estimate))) <span class="sc">+</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Coefficient Estimate"</span>, <span class="at">y =</span> <span class="st">"Variable"</span>) <span class="sc">+</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Linear Regression Results for Numeric Variables"</span>) <span class="sc">+</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>plot_num</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>cat_coef_df1 <span class="ot">&lt;-</span> cat_coef_df[<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>,]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>cat_coef_df2 <span class="ot">&lt;-</span> cat_coef_df[<span class="dv">25</span><span class="sc">:</span><span class="dv">50</span>,]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>cat_coef_df3 <span class="ot">&lt;-</span> cat_coef_df[<span class="dv">50</span><span class="sc">:</span><span class="dv">75</span>,]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>cat_coef_df4 <span class="ot">&lt;-</span> cat_coef_df[<span class="dv">75</span><span class="sc">:</span><span class="dv">100</span>,]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>cat_coef_df5 <span class="ot">&lt;-</span> cat_coef_df[<span class="dv">100</span><span class="sc">:</span><span class="dv">125</span>,]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create  separate plots</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plot_cat1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cat_coef_df1, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> <span class="fu">reorder</span>(term, estimate))) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Coefficient Estimate"</span>, <span class="at">y =</span> <span class="st">"Variable"</span>) <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Linear Regression Results for State Variables (Part 1)"</span>) <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>plot_cat1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plot_cat2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cat_coef_df2, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> <span class="fu">reorder</span>(term, estimate))) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Coefficient Estimate"</span>, <span class="at">y =</span> <span class="st">"Variable"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Linear Regression Results for State Variables (Part 2)"</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plot_cat2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plot_cat3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cat_coef_df3, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> <span class="fu">reorder</span>(term, estimate))) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Coefficient Estimate"</span>, <span class="at">y =</span> <span class="st">"Variable"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Linear Regression Results for Categorical Variables"</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plot_cat3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-8-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plot_cat4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cat_coef_df4, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> <span class="fu">reorder</span>(term, estimate))) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Coefficient Estimate"</span>, <span class="at">y =</span> <span class="st">"Variable"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Linear Regression Results for Categorical Variables (Part 2)"</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plot_cat4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-8-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plot_cat5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cat_coef_df5, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> <span class="fu">reorder</span>(term, estimate))) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Coefficient Estimate"</span>, <span class="at">y =</span> <span class="st">"Variable"</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Linear Regression Results for Categorical Variables (Part 3)"</span>) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plot_cat5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-example_files/figure-html/unnamed-chunk-8-6.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
-<section id="section-1.2" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="section-1.2"><span class="header-section-number">1.2</span> Section 1.2</h2>
-<p>Sleep again</p>
+<section id="discussion" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Discussion</h1>
 </section>
-</section>
-<section id="section-2" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Section 2</h1>
-<p>Wake up</p>
+<section id="conclusion" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Conclusion</h1>
 
 
 </section>

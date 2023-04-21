@@ -22,11 +22,9 @@ knitr::opts_chunk$set(echo = T, eval = T,
 
 # Indroduction
 
-## Motivation for the Project - James
+## Research Questions
 
-## Research Questions -James
-
-## Overview of Modeling Techniques - Me
+## Overview of Modeling Techniques
 
 <u> Linear Regression:</u> also known as Ordinary Least Squares (OLS) is the most simple method for regression analysis.
 
@@ -82,9 +80,34 @@ accident_raw <- accident_raw %>%
 ```{r, echo=FALSE,collapse=TRUE, warning=FALSE, message=FALSE}
 rmarkdown::paged_table(accident_raw)
 ```
+## About the Data
+
 ## Data Description
 
 ## Data Visualization
+```{r}
+ggplot(accident_raw, aes(x = Severity)) +
+  geom_bar(fill = "darkgreen") +
+  labs(title = "Number of Accidents by Severity", x = "Severity", y = "Count")+ 
+  theme_minimal()
+```
+
+```{r}
+library(dplyr)
+
+accident_freq <- accident_raw %>% 
+  count(State) %>% 
+  arrange(desc(n))
+
+ggplot(accident_freq, aes(x = reorder(State, -n), y = n)) +
+  geom_bar(fill = "darkgreen", stat = "identity") +
+  labs(title = "Number of Accidents by State", x = "State", y = "Count") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  ylab("Count of Accidents")+ xlab("")
+```
+
+
+
 
 # Preparing Data For Machine Learning
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE}

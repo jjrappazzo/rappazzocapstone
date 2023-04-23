@@ -26,3 +26,4 @@ format:
     mainfont: Gill Sans, sans-serif;
     toc: true
     include-after-body: target_blank.html
+    runtime: shiny

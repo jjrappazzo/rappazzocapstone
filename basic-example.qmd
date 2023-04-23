@@ -124,24 +124,14 @@ library(shiny)
 library(plotly)
 library(dplyr)
 
-
 ui <- fluidPage(
-  titlePanel("Frequency of Accidents by State for Each Severity Level"),
-  sidebarLayout(
-    sidebarPanel(
-      selectInput("severity", "Severity Level:",
-                  choices = c(1, 2, 3, 4), selected = 1)
-    ),
-    mainPanel(
-      plotlyOutput("plot")
-    )
-  )
+  selectInput("severity", "Severity Level:",
+              choices = c(1, 2, 3, 4), selected = 1),
+  plotlyOutput("plot")
 )
-
 
 server <- function(input, output) {
   
-
   data <- reactive({
     accident_raw %>%
       filter(Severity == input$severity) %>%
@@ -157,7 +147,9 @@ server <- function(input, output) {
   })
   
 }
+
 shinyApp(ui = ui, server = server)
+
 
 ```
 

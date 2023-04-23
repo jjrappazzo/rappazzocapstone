@@ -1,6 +1,11 @@
 ---
 title: United States Car Accident Project
 author: "Jason Rappazzo"
+output:
+    quarto::html_document:
+    includes:
+      in_header: shiny.html
+runtime: shiny
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
@@ -85,14 +90,18 @@ rmarkdown::paged_table(accident_raw)
 ## Data Description
 
 ## Data Visualization
-```{r}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE}
 ggplot(accident_raw, aes(x = Severity)) +
   geom_bar(fill = "darkgreen") +
   labs(title = "Number of Accidents by Severity", x = "Severity", y = "Count")+ 
   theme_minimal()
 ```
+Most of the car accidents recorded had a severity score of 2 out of the highest posible 4. The data is not balanced.
 
-```{r}
+<br>
+
+
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
 library(dplyr)
 
 accident_freq <- accident_raw %>% 
@@ -103,11 +112,76 @@ ggplot(accident_freq, aes(x = reorder(State, -n), y = n)) +
   geom_bar(fill = "darkgreen", stat = "identity") +
   labs(title = "Number of Accidents by State", x = "State", y = "Count") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
-  ylab("Count of Accidents")+ xlab("")
+  ylab("Count of Accidents")+ xlab("")+
+  theme_minimal()
+```
+The highest amount of car accidents in this particular data set came from Florida and California each with over 20,000 separate accidents.
+
+<br>
+
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
+library(shiny)
+library(plotly)
+library(dplyr)
+
+
+ui <- fluidPage(
+  titlePanel("Frequency of Accidents by State for Each Severity Level"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("severity", "Severity Level:",
+                  choices = c(1, 2, 3, 4), selected = 1)
+    ),
+    mainPanel(
+      plotlyOutput("plot")
+    )
+  )
+)
+
+
+server <- function(input, output) {
+  
+
+  data <- reactive({
+    accident_raw %>%
+      filter(Severity == input$severity) %>%
+      group_by(State) %>%
+      summarise(n = n()) %>% 
+      arrange(desc(n))
+  })
+  
+  output$plot <- renderPlotly({
+    plot_ly(data(), x = ~State, y = ~n, type = 'bar') %>%
+      layout(xaxis = list(title = "State"),
+             yaxis = list(title = "Frequency of Accidents"))
+  })
+  
+}
+shinyApp(ui = ui, server = server)
+
 ```
 
 
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
+library(tidytext)
+accident_raw %>%
+  group_by(Severity) %>%
+  count(Weather_Condition) %>%
+  mutate(n = n / sum(n)) %>%
+  top_n(10, n) %>%
+  ggplot(aes(reorder_within(Weather_Condition, n, Severity), n)) +
+  geom_col(aes(fill = !Weather_Condition == "Clear"), show.legend = F) +
+  facet_wrap(~ Severity, scales = "free_y") +
+  coord_flip() +
+  scale_x_reordered() +
+  scale_y_continuous(breaks = seq(0, 0.6, 0.05), labels = percent) +
+  labs(x = "Weather Condition",
+       y = "Proportion",
+       title = "Proportion of Top 10 Weather Conditions for Each Severity Level")
+```
+This graph shows that weather condition does not have that much of an impact on severity level. Each of the severity levels showed very high proportions of fair weather. 
 
+<br>
 
 # Preparing Data For Machine Learning
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE}

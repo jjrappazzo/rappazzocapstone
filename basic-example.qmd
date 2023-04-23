@@ -3,6 +3,7 @@ title: United States Car Accident Project
 author: "Jason Rappazzo"
 output:
     quarto::html_document:
+      self_contained: false
     includes:
       in_header: shiny.html
 runtime: shiny

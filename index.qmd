@@ -16,17 +16,15 @@ about:
     - text: Email
       icon: envelope
       href: mailto:jjrappazzo@gmail.com
-    - text: Résumé
-      icon: file-pd
-      href: https://YOUR_GITHUB.github.io/YOUR_RESUME.pdf
+
 ---
 
 
 I am a student at State University of New York at Geneseo.
 
-I am interested in ...
+I am interested in Track and Field, specialty coffee, and hiking
 
-I enjoy ...
+I enjoy reading, staying active, and data analytics!
 
 
 ## Education

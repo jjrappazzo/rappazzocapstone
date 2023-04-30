@@ -28,8 +28,14 @@ knitr::opts_chunk$set(echo = T, eval = T,
 ```
 
 # Indroduction
+For our capstone project we will be analyzing a Kaggle data set on car accidents in the United States. The data set contains accident reports from February 2016 through December 2021 using various APIs. There are 2.8 million accidents reported in this data set. There are 47 different features making this data set quite large. We will be using a 10% subset of the data for ease of computing. 
+
 
 ## Research Questions
+
+What features are strongly associated with the severity of a car accident?
+
+Which model best predicts the severity of a car accident? 
 
 ## Overview of Modeling Techniques
 
@@ -72,10 +78,9 @@ where $MSE(\beta)$ is the mean squared error function, $\beta_i$ is the coeffici
 
 ```{r, include=FALSE}
 library(tidyverse)
-# library(readr)
 
 
-# I am using a 10% sample of the original data set with 2.8 million observations
+
 path <- "C:/Users/jjrap/OneDrive/Desktop/sample_accidents.csv"
 accident_raw <- read_csv(path)
 
@@ -84,15 +89,49 @@ accident_raw <- accident_raw %>%
   na.omit()
 ```
 
-```{r, echo=FALSE,collapse=TRUE, warning=FALSE, message=FALSE}
-rmarkdown::paged_table(accident_raw)
+```{r, echo=FALSE}
+
+accident_head<- accident_raw %>% 
+  head() %>% 
+  select(-`...1`, -ID)
+
+library(kableExtra)
+
+accident_head %>%
+  kbl() %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  scroll_box(height = "400px")
 ```
 ## About the Data
+The target variable that we will be using is called “Severity” which indicates the severity of the accident scored on a numeric scale from 1-4. A score of 1 would indicate that the accident was not severe and had a little impact on traffic whereas a 4 would mean the accident had a large impact on traffic and was highly severe. We do not plan on utilizing all of the features provided in the data set. Instead we will only be using 11 in our models. The features include “State”, “Temperature(F)”, “Humidity(%)”, “Visibility(mi)”, “Wind_Speed(mph)”, “Weather_Condition”, “Precipitation(in)”, “Crossing”, “Junction”, “Traffic_Signal”, and “Sunrise_Sunset”. Using these variables in conjunction with supervised machine learning techniques, we will be able to predict the severity of a certain accident.
 
 ## Data Description
 
+<u> State:</u> Shows the state in address field.
+
+<u>Temperature(F):</u>  Shows the temperature (in Fahrenheit).
+
+<u>Humidity(%):</u>  Shows the humidity (in percentage).
+
+<u>Visibility(mi):</u> Shows visibility (in miles).
+
+<u>Wind_Speed(mph):</u> Shows wind speed (in miles per hour).
+
+<u>Weather_Condition:</u> Shows the weather condition (rain, snow, thunderstorm, fog, etc.).
+
+<u>Precipitation(in):</u> Shows precipitation amount in inches, if there is any.
+
+<u>Crossing:</u> A POI annotation which indicates presence of crossing in a nearby location.
+
+<u>Junction:</u> A POI annotation which indicates presence of junction in a nearby location.
+
+<u>Traffic_Signal:</u> A POI annotation which indicates presence of traffic_signal in a nearby location
+
+<u>Sunrise_Sunset:</u> Shows the period of day (i.e. day or night) based on sunrise/sunset.
+
+
 ## Data Visualization
-```{r, collapse=TRUE, warning=FALSE, message=FALSE}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE, echo=FALSE}
 ggplot(accident_raw, aes(x = Severity)) +
   geom_bar(fill = "darkgreen") +
   labs(title = "Number of Accidents by Severity", x = "Severity", y = "Count")+ 
@@ -103,7 +142,7 @@ Most of the car accidents recorded had a severity score of 2 out of the highest 
 <br>
 
 
-```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10, echo=FALSE}
 library(dplyr)
 
 accident_freq <- accident_raw %>% 
@@ -121,43 +160,8 @@ The highest amount of car accidents in this particular data set came from Florid
 
 <br>
 
-```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
 
-library(shiny)
-library(plotly)
-library(dplyr)
-
-ui <- fluidPage(
-  selectInput("severity", "Severity Level:",
-              choices = c(1, 2, 3, 4), selected = 1),
-  plotlyOutput("plot")
-)
-
-server <- function(input, output) {
-  
-  data <- reactive({
-    accident_raw %>%
-      filter(Severity == input$severity) %>%
-      group_by(State) %>%
-      summarise(n = n()) %>% 
-      arrange(desc(n))
-  })
-  
-  output$plot <- renderPlotly({
-    plot_ly(data(), x = ~State, y = ~n, type = 'bar') %>%
-      layout(xaxis = list(title = "State"),
-             yaxis = list(title = "Frequency of Accidents"))
-  })
-  
-}
-
-shinyApp(ui = ui, server = server)
-
-
-```
-
-
-```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10, echo=FALSE}
 library(tidytext)
 accident_raw %>%
   group_by(Severity) %>%
@@ -337,59 +341,18 @@ accident_prepared_test$Weather_Condition_Light.Snow.Shower <- 0
 ## Linear Regression
 
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE}
-# Fit the linear regression model
 lin_reg <- lm(label ~ ., data = accident_prepared)
-
-# Use the model to predict the response variable using the test data
-y_pred <- predict(lin_reg, newdata = accident_prepared_test)
-
-# Calculate the residuals
-residuals <- y_pred - label_test
-
-# Calculate the squared errors
-squared_errors <- residuals^2
-
-# Calculate the mean squared error
-mse <- mean(squared_errors)
-
-# Print the MSE
-cat("MSE:", mse)
-
-
 ```
 
 ## Ridge Regression
-
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE}
-#ridge regression
-
 library(glmnet)
-
-# Separate the predictor variables from the response variable
 y <- label
 X <- as.matrix(select(accident_prepared, -label))
-
-# Define the lambda sequence for ridge regression
 lambda_seq <- 10^seq(10, -2, length = 100)
-
-# Perform cross-validated ridge regression
 ridge_fit <- cv.glmnet(X, y, alpha = 0, lambda = lambda_seq)
-
-# Plot the cross-validation results
 plot(ridge_fit)
-
 ridge_coef <- coef(ridge_fit)[-1]
-
-y_pred <- predict(ridge_fit, newx = X)
-
-mse <- mean((y - y_pred)^2)
-
-
-# Print the MSE
-cat("MSE:", mse)
-
-
-
 ```
 
 ## Lasso Regression
@@ -404,50 +367,46 @@ extra_columns <- setdiff(colnames(accident_prepared_test), colnames(accident_pre
 
 accident_prepared_test <- accident_prepared_test %>%
                           select(-one_of(extra_columns))
-
-
-# Predict the response variable using the test data
-x_test <- model.matrix(~ ., data = accident_prepared_test) 
-y_pred <- predict(lasso_model, newx = x_test)
-
-# Calculate the MSE
-mse <- mean((y_pred - label_test)^2)
-
-# Print the MSE
-cat("MSE:", mse)
-
-
-plot(lasso_model)
-
-
 ```
 
 ## Random Forest
 ```{r}
 library(randomForest)
-
-# Train the model
 accident_forest <- randomForest(label ~ ., data = accident_prepared, ntree = 10, mtry = 5)
-
-# Make predictions on the test set
-pred <- predict(accident_forest, newdata = accident_prepared_test)
-
-# Generate confusion matrix
-confusion_matrix <- table(pred, label_test)
-
-# Calculate MSE
-mse <- mean((label_test - pred)^2)
-
-
-print(paste("Mean Squared Error:", mse))
-
 ```
 
 
 # Results
 
 ## Mean Squared Error of all Models
+```{r, echo=FALSE}
+#Linear Regression
+y_pred <- predict(lin_reg, newdata = accident_prepared_test)
+residuals <- y_pred - label_test
+squared_errors <- residuals^2
+mse <- mean(squared_errors)
+# Print the MSE
+cat("Linear Regression Mean Squared Error:", mse)
 
+#Ridge Regression
+y_pred <- predict(ridge_fit, newx = X)
+mse <- mean((y - y_pred)^2)
+cat("Ridge Regression Mean Squared Error:", mse)
+
+
+#Lasso Regression
+x_test <- model.matrix(~ ., data = accident_prepared_test) 
+y_pred <- predict(lasso_model, newx = x_test)
+mse <- mean((y_pred - label_test)^2)
+cat("Lasso Regression Mean Squared Error:", mse)
+
+#Random Forest
+pred <- predict(accident_forest, newdata = accident_prepared_test)
+confusion_matrix <- table(pred, label_test)
+mse <- mean((label_test - pred)^2)
+cat("Random Forest Mean Squared Error:", mse)
+```
+All of the models had very similar mean squared errors of around 0.13, but the best two models for predicting the severity of a car accident is the linear regression and random forest. The had slightly lower mean squared errors compared to the ridge and lasso regression models.
 
 ## Linear Regression Results
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE,echo=FALSE}
@@ -460,7 +419,7 @@ stargazer(lin_reg, type = "text", title = "Linear Regression Results",
           
 ```
 
-```{r, collapse=TRUE, warning=FALSE, message=FALSE}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE, echo=FALSE}
 library(coefplot)
 library(broom)
 
@@ -554,15 +513,57 @@ plot_cat5
 ```
 
 ## Decision Tree Results
-```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10}
+```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10, echo=FALSE}
 varImpPlot(accident_forest, main = "Variable Importance Plot")
 ```
 
 
-
-
-
-
 # Discussion
+## Linear Regression
+When looking at the beta estimates provided by our Linear Regression model, there were 41 variables that returned a p-value of less than 0.01. This indicates that these variables were statistically significant. These include: 
+<br>
+
+Humidity
+<br>
+Crossing
+<br>
+Traffic Signal
+<br>
+Several States
+<br>
+Light Drizzle/Windy
+<br>
+Light Freezing rain/windy
+<br>
+Ice Pellets
+<br>
+Overcast Conditions
+<br>
+Smoky, Windy Conditions
+<br>
+Sunrise/Sunset/Night
+
+### Interpretations of Statistically significant variables:
+
+Humidity had a beta estimate of 0.007, which means that as humidity percentage increases by one percentage point, severity increases by 0.007. 
+<br>
+
+If there is a crosswalk nearby, the severity of an accident decreases by 0.036 percent
+<br>
+
+If there is a traffic signal nearby, the severity of the  accident decreases by 0.014
+<br>
+
+The highest beta estimate magnitude had to do with the state in which an accident occurred. The state with the highest impact on accident severity is Wisconsin. The severity of an accident increases by 1.43 if the accident occurred in Wisconsin. Arizona has a beta estimate of -0.199, the lowest of the states surveyed. This means that if an accident were to occur in Arizona, the severity decreases by 0.199.
+<br>
+
+If there is a light drizzle of rain, mixed with windy conditions, the severity of accidents is expected to increase by 0.659
+<br>
+
+If there is light freezing rain mixed with windy conditions, the severity of an accident is expected to increase by 0.871.
+
+## Random Forest
+Looking at the variance importance plot, we can see that being in a particular state had the most importance in predicting the severity of the accident. Of all the variables 21 out of the top 30 most important variable all involved what state you are in. Some of the other important variables that are not related are temperature, humidity, wind speed, traffic light presence, visibility, and precipitation.
 
 # Conclusion
+Linear regression and random forest models are the best models to predict the severity of a car accident out of the four models tested. Some of the most highest impact variables are the state the accident occurs in, temperature, humidity, and wind speed. These models yielded some surprising results. I assumed that different weather conditions would play a much larger role in the severity of the accident, specifically snowy/mixed precipitation conditions. In future research, I would like to make sure the data is balanced before we start training the models. In the graph of the frequency of each severity accident, the data had a very lopsided numbers of each severity level. This may have had a large impact on the models.

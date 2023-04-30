@@ -11,10 +11,7 @@ website:
     left:
       - text: Car Accident Project
         href: basic-example.qmd
-      - text: Another Tab
-        menu:
-          - text: DANL310 midterm
-            href: DANL310_midterm-spring-2023-a.qmd
+
             
 format:
   html:

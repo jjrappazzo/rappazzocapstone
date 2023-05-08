@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jason Rappazzo">
-<meta name="dcterms.date" content="2023-04-30">
+<meta name="dcterms.date" content="2023-05-08">
 
 <title>DANL 399 - United States Car Accident Project</title>
 <style>
@@ -202,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 30, 2023</p>
+      <p class="date">May 8, 2023</p>
     </div>
   </div>
   
@@ -232,7 +232,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><u> Ridge Regression: </u> A regularized version of linear regression. This is achieved by adding this equation to the loss function:</p>
 <p><span class="math display">\[\sum_{i=1}^n  \beta_i^2\]</span></p>
 <p>The cost function for ridge regression is as follows:</p>
-<p><span class="math display">\[J(\beta) = MSE(\beta) + \frac{1}{n} \alpha \sum_{i=1}^n  \beta_i^2\]</span></p>
+<p><span class="math display">\[
+(\beta) = MSE(\beta) + \frac{1}{n} \alpha \sum_{i=1}^n  \beta_i^2
+\]</span></p>
 <p>where <span class="math inline">\(MSE(\beta)\)</span> is the mean squared error function, <span class="math inline">\(\beta_i\)</span> is the coefficient of the <span class="math inline">\(i\)</span>-th feature, <span class="math inline">\(n\)</span> is the number of samples, and <span class="math inline">\(\alpha\)</span> is the regularization strength.</p>
 <p><u> Lasso Regression: </u> Like Ridge Regression, Lasso Regression adds a regularization term to the cost function, but uses the l1 norm of the weight vector instead of half the square of the l2 norm. The cost function for Lasso Regression is as follows:</p>
 <p><span class="math display">\[J(\beta) = MSE(\beta) +  \alpha \sum_{i=1}^n  |\beta_i|\]</span></p>

@@ -60,7 +60,9 @@ $$\sum_{i=1}^n  \beta_i^2$$
 
 The cost function for ridge regression is as follows:
 
-$$J(\beta) = MSE(\beta) + \frac{1}{n} \alpha \sum_{i=1}^n  \beta_i^2$$
+$$
+(\beta) = MSE(\beta) + \frac{1}{n} \alpha \sum_{i=1}^n  \beta_i^2
+$$
 
 where $MSE(\beta)$ is the mean squared error function, $\beta_i$ is the coefficient of the $i$-th feature, $n$ is the number of samples, and $\alpha$ is the regularization strength.
 

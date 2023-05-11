@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jason Rappazzo">
-<meta name="dcterms.date" content="2023-05-08">
+<meta name="dcterms.date" content="2023-05-11">
 
 <title>DANL 399 - United States Car Accident Project</title>
 <style>
@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#mean-squared-error-of-all-models" id="toc-mean-squared-error-of-all-models" class="nav-link" data-scroll-target="#mean-squared-error-of-all-models"><span class="header-section-number">5.1</span> Mean Squared Error of all Models</a></li>
   <li><a href="#linear-regression-results" id="toc-linear-regression-results" class="nav-link" data-scroll-target="#linear-regression-results"><span class="header-section-number">5.2</span> Linear Regression Results</a></li>
-  <li><a href="#decision-tree-results" id="toc-decision-tree-results" class="nav-link" data-scroll-target="#decision-tree-results"><span class="header-section-number">5.3</span> Decision Tree Results</a></li>
+  <li><a href="#random-forest-results" id="toc-random-forest-results" class="nav-link" data-scroll-target="#random-forest-results"><span class="header-section-number">5.3</span> Random Forest Results</a></li>
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">6</span> Discussion</a>
   <ul class="collapse">
@@ -171,6 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#interpretations-of-statistically-significant-variables" id="toc-interpretations-of-statistically-significant-variables" class="nav-link" data-scroll-target="#interpretations-of-statistically-significant-variables"><span class="header-section-number">6.1.1</span> Interpretations of Statistically significant variables:</a></li>
   </ul></li>
   <li><a href="#random-forest-1" id="toc-random-forest-1" class="nav-link" data-scroll-target="#random-forest-1"><span class="header-section-number">6.2</span> Random Forest</a></li>
+  <li><a href="#potential-policy-recommendations" id="toc-potential-policy-recommendations" class="nav-link" data-scroll-target="#potential-policy-recommendations"><span class="header-section-number">6.3</span> Potential Policy Recommendations</a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7</span> Conclusion</a></li>
   </ul>
@@ -202,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 8, 2023</p>
+      <p class="date">May 11, 2023</p>
     </div>
   </div>
   
@@ -991,8 +992,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="decision-tree-results" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="decision-tree-results"><span class="header-section-number">5.3</span> Decision Tree Results</h2>
+<section id="random-forest-results" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="random-forest-results"><span class="header-section-number">5.3</span> Random Forest Results</h2>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="basic-example_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="960"></p>
@@ -1019,6 +1020,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="random-forest-1" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="random-forest-1"><span class="header-section-number">6.2</span> Random Forest</h2>
 <p>Looking at the variance importance plot, we can see that being in a particular state had the most importance in predicting the severity of the accident. Of all the variables 21 out of the top 30 most important variable all involved what state you are in. Some of the other important variables that are not related are temperature, humidity, wind speed, traffic light presence, visibility, and precipitation.</p>
+</section>
+<section id="potential-policy-recommendations" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="potential-policy-recommendations"><span class="header-section-number">6.3</span> Potential Policy Recommendations</h2>
+<p>There are a couple of potential reasons why Wisconsin suffers the most severe car accidents. One of these reasons is that Wisconsin is subject to extreme weather (lots of rain and snow) that can cause dangerous road conditions, thus contributing to fatal car accidents. When looking at a study by Mingo &amp; Yankala, it is shown that five of the nine deadliest road segments in the state of Wisconsin are located in Milwaukee, which is Wisconsin’s most densely populated area. The way that these roads are constructed potentially contributes to the number of severe car accidents that occur. Each of these segments intersects with another main road or highway or has an interchange with an interstate. One potential way to combat the prominence of severe car accidents on these segments is to decrease the speed limit on these stretches of roads, especially where they intersect/interchange with other main roads. Wisconsin is also the 10th worst state when it comes to arrests/fatalities for driving under the influence. Wisconsin should look to hand out more severe punishment for DUI charges in order to attempt to prevent this risky behavior. <a href="https://www.mysclaw.com/the-deadliest-road-stretches-in-wisconsin/#:~:text=Heavily%20trafficked%20roads%20such%20as,higher%20incident%20rate%20of%20accidents" class="uri">https://www.mysclaw.com/the-deadliest-road-stretches-in-wisconsin/#:~:text=Heavily%20trafficked%20roads%20such%20as,higher%20incident%20rate%20of%20accidents</a></p>
+<p><br></p>
+<p>Although New Hampshire does not have areas as densely populated as a metropolitan area such as Milwaukee, there are glaring reasons why accidents tend to be more severe. According to Tenn and Tenn, Attorneys at law, New Hampshire struggles to maintain the conditions of their roads. While other state governments may handle poor road conditions quickly and properly, unfortunately, New Hampshire does not. Many of the roads in New Hampshire are cracked/broken, and feature overgrown plant life. There are poor road designs in New Hampshire and many potholes. One large issue with many New Hampshire roads is that they feature curves that are not marked by road signs. One policy suggestion that we have for New Hampshire to combat its severe car accident problem is to mark winding, curved roads with road signs. New Hampshire’s state and local governments must also make more of an effort to fix roads that are damaged by weather, and car accidents at a much faster pace, rather than leaving these hazardous conditions to cause even more accidents. <a href="https://www.tennandtenn.com/car-accidents/dangerous-road-conditions/" class="uri">https://www.tennandtenn.com/car-accidents/dangerous-road-conditions/</a></p>
+<p><br></p>
+<p>While investigating why many of the states with the highest likelihood for an accident to be severe, the overwhelming majority of these states cite speeding, distracted driving (cell phones), weather, drowsiness, and drunk driving as the main reasons for the severity of their accidents. While there is no reasonable way to completely eliminate these severe accidents through policy, state and local governments can make more of an effort to promote the laws that are already in place. For example, state and local governments can issue higher, more severe penalties for driving under the influence, and being caught on your phone while driving. Also, state and local governments can again make more of an effort to keep their roads in the best condition possible by removing debris, filling potholes, and making sure that adequate street signs are in place to point out potentially hazardous road conditions.</p>
 </section>
 </section>
 <section id="conclusion" class="level1" data-number="7">

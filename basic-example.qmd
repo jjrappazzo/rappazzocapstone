@@ -514,7 +514,7 @@ plot_cat5
 
 ```
 
-## Decision Tree Results
+## Random Forest Results
 ```{r, collapse=TRUE, warning=FALSE, message=FALSE,fig.height=8, fig.width= 10, echo=FALSE}
 varImpPlot(accident_forest, main = "Variable Importance Plot")
 ```
@@ -566,6 +566,20 @@ If there is light freezing rain mixed with windy conditions, the severity of an 
 
 ## Random Forest
 Looking at the variance importance plot, we can see that being in a particular state had the most importance in predicting the severity of the accident. Of all the variables 21 out of the top 30 most important variable all involved what state you are in. Some of the other important variables that are not related are temperature, humidity, wind speed, traffic light presence, visibility, and precipitation.
+
+## Potential Policy Recommendations 
+There are a couple of potential reasons why Wisconsin suffers the most severe car accidents. One of these reasons is that Wisconsin is subject to extreme weather (lots of rain and snow) that can cause dangerous road conditions, thus contributing to fatal car accidents. When looking at a study by Mingo & Yankala, it is shown that five of the nine deadliest road segments in the state of Wisconsin are located in Milwaukee, which is Wisconsin’s most densely populated area. The way that these roads are constructed potentially contributes to the number of severe car accidents that occur. Each of these segments intersects with another main road or highway or has an interchange with an interstate. One potential way to combat the prominence of severe car accidents on these segments is to decrease the speed limit on these stretches of roads, especially where they intersect/interchange with other main roads. Wisconsin is also the 10th worst state when it comes to arrests/fatalities for driving under the influence. Wisconsin should look to hand out more severe punishment for DUI charges in order to attempt to prevent this risky behavior.
+<https://www.mysclaw.com/the-deadliest-road-stretches-in-wisconsin/#:~:text=Heavily%20trafficked%20roads%20such%20as,higher%20incident%20rate%20of%20accidents>
+
+<br>
+
+Although New Hampshire does not have areas as densely populated as a metropolitan area such as Milwaukee, there are glaring reasons why accidents tend to be more severe. According to Tenn and Tenn, Attorneys at law, New Hampshire struggles to maintain the conditions of their roads. While other state governments may handle poor road conditions quickly and properly, unfortunately, New Hampshire does not. Many of the roads in New Hampshire are cracked/broken, and feature overgrown plant life. There are poor road designs in New Hampshire and many potholes. One large issue with many New Hampshire roads is that they feature curves that are not marked by road signs. One policy suggestion that we have for New Hampshire to combat its severe car accident problem is to mark winding, curved roads with road signs. New Hampshire’s state and local governments must also make more of an effort to fix roads that are damaged by weather, and car accidents at a much faster pace, rather than leaving these hazardous conditions to cause even more accidents. 
+<https://www.tennandtenn.com/car-accidents/dangerous-road-conditions/>
+
+<br>
+
+While investigating why many of the states with the highest likelihood for an accident to be severe, the overwhelming majority of these states cite speeding, distracted driving (cell phones), weather, drowsiness, and drunk driving as the main reasons for the severity of their accidents. While there is no reasonable way to completely eliminate these severe accidents through policy, state and local governments can make more of an effort to promote the laws that are already in place. For example, state and local governments can issue higher, more severe penalties for driving under the influence, and being caught on your phone while driving. Also, state and local governments can again make more of an effort to keep their roads in the best condition possible by removing debris, filling potholes, and making sure that adequate street signs are in place to point out potentially hazardous road conditions.
+
 
 # Conclusion
 Linear regression and random forest models are the best models to predict the severity of a car accident out of the four models tested. Some of the most highest impact variables are the state the accident occurs in, temperature, humidity, and wind speed. These models yielded some surprising results. I assumed that different weather conditions would play a much larger role in the severity of the accident, specifically snowy/mixed precipitation conditions. In future research, I would like to make sure the data is balanced before we start training the models. In the graph of the frequency of each severity accident, the data had a very lopsided numbers of each severity level. This may have had a large impact on the models.
